@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Singly-Linked-List</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../CSS/Page1/header.css">
+  <link rel="stylesheet" href="../CSS/Page1/code-area.css">
+  <link rel="stylesheet" href="../CSS/Page1/codes.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../CSS/Linked-List/singly-linked-list.css">
+</head>
+
+<body>
+
+  <style>
+    @font-face {
+      font-family: anton;
+      src: url("../Fonts/Anton-Regular.ttf");
+    }
+
+    @font-face {
+      font-family: lemonada;
+      src: url("../Fonts/Lemonada-Regular.ttf");
+    }
+
+    @font-face {
+      font-family: lato;
+      src: url("../Fonts/Lato-Regular.ttf");
+    }
+
+    @font-face {
+      font-family: roboto;
+      src: url("../Fonts/RobotoCondensed-Regular.ttf");
+    }
+  </style>
+
+  <div id="expand-bar" style="overflow: scroll;">
+    <h3 style="margin-top: 90px; text-align: center; font-family: roboto;">Algorithms</h3>
+    <ul id="algo" style="font-family: lato; margin-top: 30px;">
+      <a href="">
+        <li class="eb-li-algo">
+          Sorting Algorithms
+        </li>
+      </a>
+      <a href="../index.html">
+        <li class="eb-li-algo">
+          Searching Algorithms
+        </li>
+      </a>
+      <a href="">
+        <li class="eb-li-algo">
+          Graph Algorithms
+        </li>
+      </a>
+    </ul>
+
+    <h3 style="margin-top: 50px; text-align: center; font-family: roboto;">Data Structures</h3>
+    <ul id="ds" style="font-family: lato; margin-top: 30px;">
+      <a href="">
+        <li class="eb-li-ds">
+          String
+        </li>
+      </a>
+      <a href="">
+        <li class="eb-li-ds">
+          Stack
+        </li>
+      </a>
+      <a href="">
+        <li class="eb-li-ds">
+          Queue
+        </li>
+      </a>
+      <a href="linked-list.html">
+        <li class="eb-li-ds">
+          Linked List
+        </li>
+      </a>
+    </ul>
+  </div>
+
+  <!--Brand Header-->
+  <header style="z-index: 999;">
+    <p style="
+                font-family: anton;
+                font-size: 30px;
+                margin-top: 10px;
+                text-align: center;
+              ">
+      Quantum Leap
+    </p>
+    <p style="font-family:roboto;position: absolute; top: 37px; font-size: 10px;left: 50%; translate: (50%,0);">
+      Logic
+      made simple</p>
+    <button id="header-button" type="button">
+      <hr style="margin-left: 0;" id="dash-top">
+      <hr style="margin-left: 0;" id="dash-middle">
+      <hr style="margin-left: 0;" id="dash-bottom">
+    </button>
+  </header>
+
+
+  <div style="text-align: center;">
+    <img id="lk-img" src="../images/Linked-List/singly-linked-list.png" />
+  </div>
+
+
+  <div id="codes" class="codes">
+    <button onclick="Open()" id="button_top">
+      <p class="burger-icon">&#9776;</p>
+    </button>
+
+    <button class="clip" onclick="copyClipboard(1,'insertionsort')">
+      <i class="fa fa-clipboard"></i>
+    </button>
+    <p id="copytag" class="copytag">code copied</p>
+
+    <div id="side-menu" class="side-menu">
+      <h2 onclick="Close()" style="cursor: pointer;">&times;</h2>
+      <h5 style="cursor: default;">Languages</h5>
+      <p onclick="Active(1)" id="cpp">1)C++</p>
+      <p onclick="Active(2)" id="java">2)Java</p>
+      <p onclick="Active(3)" id="py">3)Python</p>
+      <p onclick="Active(4)" id="js">4)JavaScript</p>
+    </div>
+    <div>
+
+      <pre>
+    <p class="prog" style="font-family: lemonada; text-align: center;">Program</p>
+    <p id="lang" style="text-align: center; font-family: anton; font-size: 20px;">C++</p>
+        <code class="insertioncpp" id="insertioncpp">
+          <p class="code-text"> 
+            
+          <span class='pb'>#include</span> &lt;iostream&gt;
+          
+          <span class='kw'>using namespace std;</span> 
+
+          <span class='kw'>struct</span> Node{
+              <span class='kw'>int</span> data;
+              <span class='kw'>struct</span> Node <span class='sb'>*</span>next;
+          };
+          
+          <span class='kw'>struct</span> Node <span class='sb'>*</span>head = <span class='sb'>NULL</span>;
+          
+          <span class='pb'>void</span> insert(<span class='kw'>int</span> new_data){
+              <span class='kw'>struct</span> Node<span class='sb'>*</span> node = (<span class='kw'>struct</span> Node<span class='sb'>*</span>) malloc(sizeof(<span class='kw'>struct</span> Node));
+              node<span class='sb'>-></span>data = new_data;
+              node<span class='sb'>-></span>next = head;
+              head = node;   
+          }
+          
+          <span class='pb'>void</span> display(){
+              <span class='kw'>struct</span> Node<span class='sb'>*</span> ptr;
+              ptr = head;
+              <span class='kw'>while</span>(ptr != <span class='sb'>NULL</span>){
+                  <span class='kw'>cout</span>&lt;&lt;ptr<span class='sb'>-></span>data<<" ";
+                  ptr = ptr<span class='sb'>-&gt;</span>next;
+              }
+              <span class='kw'>cout</span>&lt;&lt;endl;
+          }
+          
+          <span class='kw'>int</span> deleteNode(<span class='kw'>struct</span> Node <span class='sb'>*</span><span class='sb'>*</span>head, <span class='kw'>int</span> key){
+              <span class='kw'>struct</span> Node<span class='sb'>*</span> temp = <span class='sb'>*</span>head,<span class='sb'>*</span>prev;
+              
+              <span class='kw'>if</span>(temp != <span class='sb'>NULL</span> && temp<span class='sb'>-></span>data == key){
+                  <span class='sb'>*</span>head = temp<span class='sb'>-></span>next;
+                  free(temp);
+                  <span class='kw'>return</span> 0;
+              }
+              
+              <span class='kw'>while</span>(temp != <span class='sb'>NULL</span> && temp<span class='sb'>-></span>data != key){
+                  prev = temp;
+                  temp = temp<span class='sb'>-></span>next;
+              }
+              
+              <span class='kw'>if</span>(temp == <span class='sb'>NULL</span>) <span class='kw'>return</span> -1;
+          
+              prev<span class='sb'>-></span>next = temp<span class='sb'>-></span>next;
+              free(temp);
+          }
+          
+          <span class='pb'>void</span> add_at_pos(<span class='kw'>struct</span> Node <span class='sb'>*</span><span class='sb'>*</span>head, <span class='kw'>int</span> elem, <span class='kw'>int</span> pos){
+              
+              <span class='kw'>struct</span> Node<span class='sb'>*</span> new_node = (<span class='kw'>struct</span> Node<span class='sb'>*</span>) malloc(sizeof(<span class='kw'>struct</span> Node));
+              new_node<span class='sb'>-></span>data = elem;
+              new_node<span class='sb'>-></span>next = <span class='sb'>NULL</span>;
+              
+              <span class='kw'>struct</span> Node<span class='sb'>*</span> temp = <span class='sb'>*</span>head;
+              <span class='kw'>struct</span> Node<span class='sb'>*</span> prev;
+                
+              <span class='kw'>if</span>(pos == 0){
+                  prev = <span class='sb'>*</span>head;
+                  <span class='sb'>*</span>head = new_node;
+                  new_node<span class='sb'>-></span>next = prev;
+                  <span class='kw'>return</span>;
+              }
+              
+              <span class='kw'>while</span>(temp != <span class='sb'>NULL</span> && pos != 0){
+                  prev = temp;
+                  temp = temp<span class='sb'>-></span>next;
+                  pos--;
+              }
+              
+              prev<span class='sb'>-></span>next = new_node;
+              new_node<span class='sb'>-></span>next = temp;
+          }
+          
+          <span class='kw'>int</span> main()
+          {
+              
+              <span class='kw'>int</span> ch;
+              <span class='kw'>cout</span><<"1) Insert into the linked list"&lt;&lt;endl;
+              <span class='kw'>cout</span><<"2) Remove a element using a key"&lt;&lt;endl;
+              <span class='kw'>cout</span><<"3) Insert by specifying a position"&lt;&lt;endl;
+              <span class='kw'>cout</span><<"4) Display the linked list"&lt;&lt;endl;
+              <span class='kw'>cout</span><<"5) Exit"&lt;&lt;endl;
+              
+              <span class='kw'>do</span>{
+                  <span class='kw'>cout</span><<"Enter your choice: ";
+                  <span class='kw'>cin</span>>>ch;
+                  <span class='kw'>cout</span><<"\n\n";
+                  
+                  <span class='kw'>switch</span>(ch){
+                      <span class='kw'>case</span> 1: <span class='kw'>int</span> elem,N;
+                              <span class='kw'>cout</span><<"Enter no. of elements: ";
+                              <span class='kw'>cin</span>>>N;
+                              <span class='kw'>cout</span>&lt;&lt;endl;
+                              
+                              <span class='kw'>while</span>(N>0){
+                                  <span class='kw'>cout</span><<"Enter the element: ";
+                                  <span class='kw'>cin</span>>>elem;
+                                  <span class='kw'>cout</span>&lt;&lt;endl;
+                                  insert(elem);
+                                  N--;
+                              }
+                              <span class='kw'>cout</span><<"Insertion Done!!!"&lt;&lt;endl;
+                              <span class='kw'>break;</span>
+                              
+                      <span class='kw'>case</span> 2: <span class='kw'>int</span> key;
+                              <span class='kw'>cout</span><<"Enter the key: ";
+                              <span class='kw'>cin</span>>>key;
+                              <span class='kw'>int</span> r;
+                              r = deleteNode(&head,key);
+                              r == -1? <span class='kw'>cout</span><<"Element not found"&lt;&lt;endl : <span class='kw'>cout</span>&lt;&lt;key&lt;&lt;" deleted"&lt;&lt;"\n\n";
+                              <span class='kw'>break;</span>
+                              
+                      <span class='kw'>case</span> 3: <span class='kw'>int</span> val,pos;
+                              <span class='kw'>cout</span>&lt;&lt;"Enter the element: ";
+                              <span class='kw'>cin</span>>>val;
+                              <span class='kw'>cout</span>&lt;&lt;"\n";
+                              <span class='kw'>cout</span>&lt;&lt;"Enter the Position: ";
+                              <span class='kw'>cin</span>>>pos;
+                              <span class='kw'>cout</span>&lt;&lt;"\n\n";
+                              add_at_pos(&head,val,pos);
+                              <span class='kw'>break;</span>
+                              
+                      <span class='kw'>case</span> 4: display();
+                              <span class='kw'>break;</span>
+                              
+                      <span class='kw'>case</span> 5: <span class='kw'>cout</span>&lt;&lt;"Exit!!!"&lt;&lt;endl;
+                              break;
+                              
+                      <span class='kw'>default</span>: <span class='kw'>cout</span><<"Invalid Choice!!!"&lt;&lt;endl;
+                              
+                  }
+                  
+                  
+              }<span class='kw'>while</span>(ch !=5);
+              <span class='kw'>return</span> 0;
+          }
+              
+          </p>     
+        </code>
+      </pre>
+
+
+
+
+      <pre>
+        <code class="insertionjava" id="insertionjava">
+          <p class="code-text">
+    <span class="pb">public</span> <span class="kw">class</span> InsertionSortExample {  
+      <span class="pb">public</span> <span class="kw">static</span> <span class="kw">void</span> insertionSort(int array[]) {  
+        <span class="kw">int</span> n = array.<span class="kw">length</span>;  
+        <span class="kw">for</span>(<span class="kw">int</span> j = 1; j < n; j++) {  
+            <span class="kw">int</span> key = array[j];  
+            <span class="kw">int</span> i = j-1;  
+            <span class="kw">while</span> ( (i > -1) <span class="kw">&&</span> ( array [i] > key ) ) {  
+                array [i+1] = array [i];  
+                i--;  
+            }  
+            array[i+1] = key;  
+        }  
+      }  
+     
+      <span class="pb">public</span> <span class="kw">static</span> <span class="kw">void</span> <span class="pb">main</span>(<span class="kw">String</span> a[]){    
+        <span class="kw">int</span>[] arr1 = {9,14,3,2,43,11,58,22};    
+        <span class="pb">System</span>.<span class="kw">out</span>.<span class="kw">println</span>("Before Insertion Sort");    
+        <span class="kw">for</span>(<span class="kw">int</span> i:arr1){    
+            <span class="pb">System</span>.<span class="kw">out</span>.<span class="kw">print</span>(i+" ");    
+        }    
+        <span class="pb">System</span>.<span class="kw">out</span>.<span class="kw">println</span>();    
+            
+        insertionSort(arr1);//sorting array using insertion sort    
+          
+        <span class="pb">System</span>.<span class="kw">out</span>.<span class="kw">println</span>("After Insertion Sort");    
+        <span class="kw">for</span>(<span class="kw">int</span> i:arr1){    
+            <span class="pb">System</span>.<span class="kw">out</span>.<span class="kw">print</span>(i+" ");    
+        }    
+      }    
+    }   
+        </p>
+      </code>
+      </pre>
+
+
+    </div>
+    <div onclick="Close()" class="closingTap"></div>
+
+  </div>
+
+  <script src="../JS/Page1/header.js"></script>
+  <script src="../JS/Page1/open-close-handburger.js"></script>
+  <script src="../JS/Linked-List/clipboard.js"></script>
+  <script src="../JS/Page1/insert-codes.js"></script>
+
+  <script>
+    Active(1)
+  </script>
+
+</body>
+
+</html>

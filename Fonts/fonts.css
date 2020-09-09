@@ -1,0 +1,19 @@
+@font-face {
+    font-family: anton;
+    src: url("Anton-Regular.ttf");
+}
+
+@font-face {
+    font-family: lato;
+    src: url("Lato-Regular.ttf");
+}
+
+@font-face {
+    font-family: lemonada;
+    src: url("Lemonada-Regular.ttf");
+}
+
+@font-face {
+    font-family: roboto;
+    src: url("RobotoCondensed-Regular.ttf");
+}

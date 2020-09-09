@@ -1,0 +1,15 @@
+#lk-img {
+    width: 70%;
+    margin-top: 90px;
+}
+
+.burger-icon {
+    position: sticky !important;
+    top: 90px !important;
+}
+
+@media(max-width:500px) {
+    #lk-img {
+        width: 100%;
+    }
+}

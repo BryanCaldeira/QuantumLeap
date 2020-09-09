@@ -1,0 +1,41 @@
+.kw {
+    color: #F92672;
+    font-weight: 900;
+}
+
+.include,
+.pb {
+    color: dodgerblue;
+    font-weight: bolder;
+}
+
+.sb {
+    color: #B928E6;
+    font-weight: bolder;
+}
+
+.insertioncpp>p,
+.insertionjava>p {
+    margin-top: -70px;
+}
+
+.insertioncpp,
+.insertionjava {
+    position: absolute;
+    display: none;
+}
+
+
+.code-text {
+    font-weight: 800;
+}
+
+.active {
+    display: block;
+}
+
+@media(min-device-width:700px) {
+    .code-text {
+        font-size: 17px;
+    }
+}

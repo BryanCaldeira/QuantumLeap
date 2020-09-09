@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array-DS</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../CSS/Page1/header.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../Fonts/fonts.css">
+  <link rel="stylesheet" href="../CSS/Array/array.css">
+</head>
+
+<body>
+  <div id="expand-bar" style="overflow: scroll;">
+    <h3 style="margin-top: 90px; text-align: center; font-family: roboto;">Algorithms</h3>
+    <ul id="algo" style="font-family: lato; margin-top: 30px;">
+      <a href="../Sorting-Algos-HTML/sorting-algo.html">
+        <li class="eb-li-algo">
+          Sorting Algorithms
+        </li>
+      </a>
+      <a href="">
+        <li class="eb-li-algo">
+          Searching Algorithms
+        </li>
+      </a>
+      <a href="">
+        <li class="eb-li-algo">
+          Graph Algorithms
+        </li>
+      </a>
+    </ul>
+
+    <h3 style="margin-top: 50px; text-align: center; font-family: roboto;">Data Structures</h3>
+    <ul id="ds" style="font-family: lato; margin-top: 30px;">
+      <a href="">
+        <li class="eb-li-ds">
+          Array
+        </li>
+      </a>
+      <a href="">
+        <li class="eb-li-ds">
+          Stack
+        </li>
+      </a>
+      <a href="">
+        <li class="eb-li-ds">
+          Queue
+        </li>
+      </a>
+      <a href="../Linked-List-HTML/linked-list.html">
+        <li class="eb-li-ds">
+          Linked List
+        </li>
+      </a>
+    </ul>
+  </div>
+
+  <!--Brand Header-->
+  <header style="z-index: 999;">
+    <p style="
+                font-family: anton;
+                font-size: 30px;
+                margin-top: 10px;
+                text-align: center;
+              ">
+      Quantum Leap
+    </p>
+    <p style="font-family:roboto;position: absolute; top: 37px; font-size: 10px;left: 50%; translate: (50%,0);">
+      Logic
+      made simple</p>
+    <button id="header-button" type="button">
+      <hr style="margin-left: 0;" id="dash-top">
+      <hr style="margin-left: 0;" id="dash-middle">
+      <hr style="margin-left: 0;" id="dash-bottom">
+    </button>
+  </header>
+
+  <div class="array-def">
+    <h1 style="font-family: Lato;">What is an Array?</h1>
+    <p>
+      &#8212; <span class="txt">An Array is a sequential collection of elements of same data type.</span><br /><br />
+      &#8212; <span class="txt">Array stores elements in continuous memory location.</span><br /><br />
+      &#8212; <span class="txt">Array elements can be accessed by using Index</span><br /><br />
+      &#8212; <span class="txt">The range of Index of an array of size 'N' is in the range '0' to
+        'N-1'</span><br /><br />
+      &#8212; <span class="txt">For example, if we have a array of 5 elements, then the array index will be in the
+        range of
+        '0' to '4'</span><br /><br />
+      &#8212; <span class="txt">Any element in the array can be accessed by using array[index]</span><br />
+      <img id="arr_img" src="../images/Array/array.png"><br />
+      &#8212; <span class="txt">From the above example array we can access the element 10 by using array[2]</span>
+    </p>
+  </div>
+
+  <h2 style="font-family: Lato; text-align: center;">Array Declaration</h2>
+  <div class="dec_arr">
+    <p>
+      &#8212; <span class="txt">In C/C++</span><br /><br />
+      <span class="code"><span class="kw">type</span> &nbsp;arr[5];</span><br /><br />
+      &#8212; <span class="txt">In Java</span><br /><br />
+      <span class="code"><span class="kw">type</span> &nbsp;arr[ ] = <span style="color: blue;">new&nbsp;</span>
+        <span style="color: blue;">type</span>[size];</span><br /><br /><br />
+      &#8212; <span class="txt">Here 'type' can be any datatype supported by the language</span><br />
+      <span class="txt">
+        ex:
+        &nbsp;char,
+        &nbsp;int,
+        &nbsp;float,
+        &nbsp;bool, ...etc
+      </span><br /><br />
+      &#8212; <span class="txt">In Java the declaration looks a bit different because it includes declaration and memory
+        allocation in a single step</span><br /><br />
+      &#8212; <span class="txt">The elements in the array allocated by <span style="color: blue;"><em>new</em></span>
+        will
+        automatically be initialized to
+        zero (for number types), <span style="color: blue;">false</span> (for boolean), or <span
+          style="color: blue;">null</span> for reference types</span><br />
+    </p>
+  </div>
+
+  <h2 style="font-family: Lato; text-align: center;">Array Initialization</h2>
+  <div class="init_arr">
+    <p>
+      &#8212; <span class="txt">Array can be initialized either at the time of declaration or after
+        that</span><br /><br />
+      &#8212; <span class="txt">In C/C++</span><br /><br />
+      <span class="code"><span class="kw">type</span> &nbsp;arr[size] = {elem 1, elem 2, ..., elem
+        n};</span><br /><br />
+      &#8212; <span class="txt">In Java</span><br /><br />
+      <span class="code"><span class="kw">type</span> &nbsp;arr[ ] = <span style="color: blue;">new</span>
+        &nbsp;<span style="color: blue;">type</span>[ ]{elem 1, elem 2, ..., elem n};</span><br /><br /><br />
+      &#8212; <span class="txt">Here 'type' can be any datatype supported by the language</span><br />
+      <span class="txt">
+        ex:
+        &nbsp;char,
+        &nbsp;int,
+        &nbsp;float,
+        &nbsp;bool, ...etc
+      </span>
+    </p>
+  </div>
+
+
+  <h2 style="font-family: Lato; text-align: center;">Multi Dimensional Arrays</h2>
+  <div class="mul_arr">
+
+  </div>
+
+
+  <h2 style="font-family: Lato; text-align: center;">Time Complexity</h2>
+  <div class="com_arr" align="center">
+
+    <table>
+      <tr>
+        <th>Algorithm</th>
+        <th>Average/Worst Case</th>
+      </tr>
+      <tr>
+        <td>Access</td>
+        <td style="text-align: center;">O(1)</td>
+      </tr>
+      <tr>
+        <td>Searching, Insertion, Deletion</td>
+        <td style="text-align: center;">O(n)</td>
+      </tr>
+    </table>
+
+  </div>
+
+  <h2 style="font-family: Lato; text-align: center;">Solve Problems</h2>
+  <p style="text-align: center; margin-bottom: 100px;"><a target="_blank"
+      href="https://www.hackerrank.com/domains/data-structures?filters%5Bsubdomains%5D%5B%5D=arrays">www.hackerrank.com</a>
+  </p>
+
+  <script src="../JS/Page1/open-close-handburger.js"></script>
+  <script src="../JS/Page1/insert-codes.js"></script>
+  <script src="../JS/Page1/clipboard.js"></script>
+  <script src="../JS/Page1/header.js"></script>
+  <script>
+    Active(1);
+  </script>
+
+</body>
+
+</html>

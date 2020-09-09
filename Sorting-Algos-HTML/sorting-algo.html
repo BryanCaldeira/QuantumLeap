@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sorting-Algos</title>
+  <link rel="stylesheet" href="CSS/Page1/style.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../CSS/Page1/code-area.css">
+  <link rel="stylesheet" href="../CSS/Page1/codes.css">
+  <link rel="stylesheet" href="../CSS/Page1/header.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../Fonts/fonts.css">
+</head>
+
+<body>
+
+  <div id="expand-bar" style="overflow: scroll;">
+    <h3 style="margin-top: 90px; text-align: center; font-family: roboto;">Algorithms</h3>
+    <ul id="algo" style="font-family: lato; margin-top: 30px;">
+      <a href="">
+        <li class="eb-li-algo">
+          Sorting Algorithms
+        </li>
+      </a>
+      <a href="">
+        <li class="eb-li-algo">
+          Searching Algorithms
+        </li>
+      </a>
+      <a href="">
+        <li class="eb-li-algo">
+          Graph Algorithms
+        </li>
+      </a>
+    </ul>
+
+    <h3 style="margin-top: 50px; text-align: center; font-family: roboto;">Data Structures</h3>
+    <ul id="ds" style="font-family: lato; margin-top: 30px;">
+      <a href="../Array-HTML/array.html">
+        <li class="eb-li-ds">
+          Array
+        </li>
+      </a>
+      <a href="">
+        <li class="eb-li-ds">
+          Stack
+        </li>
+      </a>
+      <a href="">
+        <li class="eb-li-ds">
+          Queue
+        </li>
+      </a>
+      <a href="../Linked-List-HTML/linked-list.html">
+        <li class="eb-li-ds">
+          Linked List
+        </li>
+      </a>
+    </ul>
+  </div>
+
+  <!--Brand Header-->
+  <header style="z-index: 999;">
+    <p style="
+            font-family: anton;
+            font-size: 30px;
+            margin-top: 10px;
+            text-align: center;
+          ">
+      Quantum Leap
+    </p>
+    <p style="font-family:roboto;position: absolute; top: 37px; font-size: 10px;left: 50%; translate: (50%,0);">Logic
+      made simple</p>
+    <button id="header-button" type="button">
+      <hr style="margin-left: 0;" id="dash-top">
+      <hr style="margin-left: 0;" id="dash-middle">
+      <hr style="margin-left: 0;" id="dash-bottom">
+    </button>
+  </header>
+
+
+  <!--Insertion Sorting-->
+  <div class="main">
+    <h1 style="font-family: lato; margin-top: 100px; text-align: center;">Insertion Sorting</h1>
+    <div id="codes" class="codes">
+      <button onclick="Open()" id="button_top">
+        <p class="burger-icon">&#9776;</p>
+      </button>
+
+      <button class="clip" onclick="copyClipboard(1,'insertionsort')">
+        <i class="fa fa-clipboard"></i>
+      </button>
+      <p id="copytag" class="copytag">code copied</p>
+
+      <div id="side-menu" class="side-menu">
+        <h2 onclick="Close()" style="cursor: pointer;">&times;</h2>
+        <h5 style="cursor: default;">Languages</h5>
+        <p onclick="Active(1)" id="cpp">1)C++</p>
+        <p onclick="Active(2)" id="java">2)Java</p>
+        <p onclick="Active(3)" id="py">3)Python</p>
+        <p onclick="Active(4)" id="js">4)JavaScript</p>
+      </div>
+      <div>
+        <pre>
+      <p class="prog" style="font-family: lemonada; text-align: center;">Program</p>
+      <p id="lang" style="text-align: center; font-family: anton; font-size: 20px;">C++</p>
+      <code class="insertioncpp" id="insertioncpp">
+      <p class="code-text"> 
+      <span class="include">#include</span> <span>&lt;iostream&gt;</span>
+      <span class="kw">using namespace</span> std;
+      <span class="kw">void</span> display(<span class="kw">int</span> *array, <span class="kw">int</span> size) {
+          <span class="kw">for</span>(<span class="kw">int</span> i = 0; i < size; i++)
+          <span class="kw">cout</span> << array[i] << " ";
+          <span class="kw">cout</span> << <span class="kw">endl</span>;
+      }
+
+      <span class="kw">void</span> insertionSort(<span class="kw">int</span> *array,<span class="kw">int</span> size) {
+          <span class="kw">int</span> key, j;
+          <span class="kw">for</span>(int i = 1; i &lt; size; i++) {
+            key = array[i];//take value
+            j = i;
+            <span class="kw">while</span>(j > 0 && array[j-1]>key) {
+                array[j] = array[j-1];
+                j--;
+            }
+            array[j] = key;   //insert in right place         
+          }
+      }
+
+      <span class="kw">int</span> main() {
+        <span class="kw">int</span> n;
+        <span class="kw">cout</span> << "Enter the number of elements: ";
+        <span class="kw">cin</span> >> n;
+        <span class="kw">int</span> arr[n];
+        <span class="kw">cout</span> << "Enter elements:" << <span class="kw">endl</span>;
+        <span class="kw">for</span>(<span class="kw">int</span> i = 0; i<n; i++) {
+          cin >> arr[i];
+        }
+        <span class="kw">cout</span> << "Array before Sorting: ";
+        display(arr, n);
+        insertionSort(arr, n);
+        <span class="kw">cout</span> << "Array after Sorting: ";
+        display(arr, n);
+      }
+          </p>     
+          </code>
+        </pre>
+
+        <pre>
+          <code class="insertionjava" id="insertionjava">
+            <p class="code-text">
+      <span class="pb">public</span> <span class="kw">class</span> InsertionSortExample {  
+        <span class="pb">public</span> <span class="kw">static</span> <span class="kw">void</span> insertionSort(int array[]) {  
+          <span class="kw">int</span> n = array.<span class="kw">length</span>;  
+          <span class="kw">for</span>(<span class="kw">int</span> j = 1; j < n; j++) {  
+              <span class="kw">int</span> key = array[j];  
+              <span class="kw">int</span> i = j-1;  
+              <span class="kw">while</span> ( (i > -1) <span class="kw">&&</span> ( array [i] > key ) ) {  
+                  array [i+1] = array [i];  
+                  i--;  
+              }  
+              array[i+1] = key;  
+          }  
+        }  
+       
+        <span class="pb">public</span> <span class="kw">static</span> <span class="kw">void</span> <span class="pb">main</span>(<span class="kw">String</span> a[]){    
+          <span class="kw">int</span>[] arr1 = {9,14,3,2,43,11,58,22};    
+          <span class="pb">System</span>.<span class="kw">out</span>.<span class="kw">println</span>("Before Insertion Sort");    
+          <span class="kw">for</span>(<span class="kw">int</span> i:arr1){    
+              <span class="pb">System</span>.<span class="kw">out</span>.<span class="kw">print</span>(i+" ");    
+          }    
+          <span class="pb">System</span>.<span class="kw">out</span>.<span class="kw">println</span>();    
+              
+          insertionSort(arr1);//sorting array using insertion sort    
+            
+          <span class="pb">System</span>.<span class="kw">out</span>.<span class="kw">println</span>("After Insertion Sort");    
+          <span class="kw">for</span>(<span class="kw">int</span> i:arr1){    
+              <span class="pb">System</span>.<span class="kw">out</span>.<span class="kw">print</span>(i+" ");    
+          }    
+        }    
+      }   
+          </p>
+        </code>
+        </pre>
+
+
+      </div>
+      <div onclick="Close()" class="closingTap"></div>
+    </div>
+
+
+    <!--Quick Sorting-->
+    <h1 style="font-family: lato; text-align: center;">Quick Sorting</h1>
+
+    <!--Bubble Sorting-->
+    <h1 style="font-family: lato; text-align: center;">Bubble Sort</h1>
+
+  </div>
+
+
+  <script src="../JS/Page1/open-close-handburger.js"></script>
+  <script src="../JS/Page1/insert-codes.js"></script>
+  <script src="../JS/Page1/clipboard.js"></script>
+  <script src="../JS/Page1/header.js"></script>
+  <script>
+    Active(1);
+  </script>
+</body>
+
+</html>
